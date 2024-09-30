@@ -789,6 +789,10 @@ def modify(args, config, basepath, workspace):
                             "not exist or is not a directory" %
                             srctree)
 
+        if not args.no_extract and os.path.isdir(srctree):
+            raise DevtoolError("Source path %s already exists. Did you mean to "
+                               "specify --no-extract?" % srctree)
+
         recipefile = rd.getVar('FILE')
         appendfile = recipe_to_append(recipefile, config, args.wildcard)
         if os.path.exists(appendfile):

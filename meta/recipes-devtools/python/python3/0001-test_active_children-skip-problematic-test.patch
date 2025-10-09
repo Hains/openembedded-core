@@ -14,12 +14,12 @@ Signed-off-by: Trevor Gamblin <tgamblin@baylibre.com>
  1 file changed, 1 insertion(+)
 
 diff --git a/Lib/test/_test_multiprocessing.py b/Lib/test/_test_multiprocessing.py
-index 23eb971..b1295b2 100644
+index 9a72362..004f3c0 100644
 --- a/Lib/test/_test_multiprocessing.py
 +++ b/Lib/test/_test_multiprocessing.py
-@@ -594,6 +594,7 @@ class _TestProcess(BaseTestCase):
-         self.assertTrue(type(cpus) is int)
-         self.assertTrue(cpus >= 1)
+@@ -615,6 +615,7 @@ class _TestProcess(BaseTestCase):
+         self.assertIsInstance(cpus, int)
+         self.assertGreaterEqual(cpus, 1)
  
 +    @unittest.skip("skipping problematic test")
      def test_active_children(self):

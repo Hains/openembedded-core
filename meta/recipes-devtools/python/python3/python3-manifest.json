@@ -110,8 +110,7 @@
             "io",
             "logging",
             "netclient",
-            "numbers",
-            "stringold"
+            "numbers"
         ],
         "files": [
             "${libdir}/python${PYTHON_MAJMIN}/asyncio",
@@ -498,8 +497,7 @@
         "rdepends": [
             "core",
             "pprint",
-            "shell",
-            "stringold"
+            "shell"
         ],
         "files": [
             "${libdir}/python${PYTHON_MAJMIN}/bdb.py",
@@ -550,7 +548,6 @@
             "difflib",
             "pprint",
             "shell",
-            "stringold",
             "unittest"
         ],
         "files": [
@@ -568,8 +565,7 @@
             "io",
             "math",
             "mime",
-            "netclient",
-            "stringold"
+            "netclient"
         ],
         "files": [
             "${libdir}/python${PYTHON_MAJMIN}/email",
@@ -683,7 +679,6 @@
             "io",
             "netserver",
             "pickle",
-            "stringold",
             "threading"
         ],
         "files": [
@@ -700,8 +695,7 @@
             "io",
             "math",
             "mime",
-            "netclient",
-            "stringold"
+            "netclient"
         ],
         "files": [
             "${libdir}/python${PYTHON_MAJMIN}/mailbox.py"
@@ -791,7 +785,6 @@
             "shell",
             "sqlite3",
             "statistics",
-            "stringold",
             "syslog",
             "terminal",
             "threading",
@@ -835,8 +828,7 @@
             "email",
             "io",
             "math",
-            "mime",
-            "stringold"
+            "mime"
         ],
         "files": [
             "${libdir}/python${PYTHON_MAJMIN}/base64.py",
@@ -995,8 +987,7 @@
     "shell": {
         "summary": "Python shell-like functionality",
         "rdepends": [
-            "core",
-            "stringold"
+            "core"
         ],
         "files": [
             "${libdir}/python${PYTHON_MAJMIN}/cmd.py",
@@ -1032,18 +1023,6 @@
         ],
         "cached": [
             "${libdir}/python${PYTHON_MAJMIN}/__pycache__/statistics.*.pyc"
-        ]
-    },
-    "stringold": {
-        "summary": "Common string operations",
-        "rdepends": [
-            "core"
-        ],
-        "files": [
-            "${libdir}/python${PYTHON_MAJMIN}/string.py"
-        ],
-        "cached": [
-            "${libdir}/python${PYTHON_MAJMIN}/__pycache__/string.*.pyc"
         ]
     },
     "syslog": {
@@ -1116,8 +1095,7 @@
             "logging",
             "netclient",
             "numbers",
-            "pprint",
-            "stringold"
+            "pprint"
         ],
         "files": [
             "${libdir}/python${PYTHON_MAJMIN}/unittest",
@@ -1143,8 +1121,7 @@
         "summary": "Provides support for creating lightweight virtual environments with their own site directories, optionally isolated from system site directories.",
         "rdepends": [
             "core",
-            "logging",
-            "stringold"
+            "logging"
         ],
         "files": [
             "${bindir}/pyvenv*",
@@ -1178,7 +1155,6 @@
             "netserver",
             "numbers",
             "pydoc",
-            "stringold",
             "xml"
         ],
         "files": [
@@ -1209,6 +1185,17 @@
         "files": [
             "${libdir}/python${PYTHON_MAJMIN}/lib-dynload/_zoneinfo.*.so",
             "${libdir}/python${PYTHON_MAJMIN}/zoneinfo"
+        ],
+        "cached": []
+    },
+    "zstd": {
+        "summary": "ZSTD compression",
+        "rdepends": [
+            "core",
+            "compression"
+        ],
+        "files": [
+            "${libdir}/python${PYTHON_MAJMIN}/lib-dynload/_zstd.*.so"
         ],
         "cached": []
     }

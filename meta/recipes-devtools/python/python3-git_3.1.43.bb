@@ -24,7 +24,6 @@ RDEPENDS:${PN} += " \
                    python3-logging \
                    python3-math \
                    python3-netclient \
-                   python3-stringold \
                    python3-unittest \
                    python3-unixadmin \
                    git \

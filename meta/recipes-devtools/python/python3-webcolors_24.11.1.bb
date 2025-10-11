@@ -7,8 +7,4 @@ SRC_URI[sha256sum] = "ecb3d768f32202af770477b8b65f318fa4f566c22948673a977b00d589
 
 inherit pypi python_pdm ptest-python-pytest
 
-RDEPENDS:${PN}:class-target = "\
-    python3-stringold \
-"
-
 BBCLASSEXTEND = "native nativesdk"

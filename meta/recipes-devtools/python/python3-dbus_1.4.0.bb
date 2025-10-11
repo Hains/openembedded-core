@@ -16,7 +16,7 @@ inherit setuptools3-base meson pkgconfig
 # requires dbus-run-session
 EXTRA_OEMESON += "-Dtests=false"
 
-RDEPENDS:${PN} = "python3-io python3-logging python3-stringold python3-threading python3-xml"
+RDEPENDS:${PN} = "python3-io python3-logging python3-threading python3-xml"
 
 FILES:${PN}-dev += "${libdir}/pkgconfig"
 

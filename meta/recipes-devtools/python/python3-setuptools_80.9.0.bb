@@ -29,7 +29,6 @@ RDEPENDS:${PN} = "\
     python3-pkgutil \
     python3-plistlib \
     python3-shell \
-    python3-stringold \
     python3-threading \
     python3-unittest \
     python3-unixadmin \

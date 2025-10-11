@@ -14,5 +14,4 @@ BBCLASSEXTEND = "native nativesdk"
 RDEPENDS:${PN} += " \
     python3-mmap \
     python3-netclient \
-    python3-stringold \
 "

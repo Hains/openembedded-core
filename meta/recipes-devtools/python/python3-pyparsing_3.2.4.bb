@@ -21,7 +21,6 @@ RDEPENDS:${PN} += " \
     python3-json \
     python3-netclient \
     python3-pprint \
-    python3-stringold \
     python3-threading \
 "
 

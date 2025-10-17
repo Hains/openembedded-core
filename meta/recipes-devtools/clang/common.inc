@@ -17,14 +17,13 @@ BASEURI ?= "${LLVM_HTTP}/llvm-project/releases/download/llvmorg-${PV}${VER_SUFFI
 UPSTREAM_CHECK_URI = "${LLVM_HTTP}/llvm-project/releases/"
 UPSTREAM_CHECK_REGEX = "releases/tag/llvmorg-?(?P<pver>\d+(\.\d+)+)"
 SOURCEDIR ?= "llvm-project-${PV}${VER_SUFFIX}.src"
-SRC_URI[sha256sum] = "1a417d1c8faf8d93e73fec1cbb76d393ed3218974c2283c7bac9672d3d47c54b"
+SRC_URI[sha256sum] = "9c9db50d8046f668156d83f6b594631b4ca79a0d96e4f19bed9dc019b022e58f"
 
 SRC_URI = "\
     ${BASEURI} \
     file://0001-libcxxabi-Find-libunwind-headers-when-LIBCXXABI_LIBU.patch \
     file://0002-compiler-rt-support-a-new-embedded-linux-target.patch \
     file://0003-compiler-rt-Simplify-cross-compilation.-Don-t-use-na.patch \
-    file://0004-llvm-TargetLibraryInfo-Undefine-libc-functions-if-th.patch \
     file://0005-llvm-allow-env-override-of-exe-and-libdir-path.patch \
     file://0006-clang-driver-Check-sysroot-for-ldso-path.patch \
     file://0007-clang-Driver-tools.cpp-Add-lssp_nonshared-on-musl.patch \

@@ -6,7 +6,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=b9257785fc4f3803a4b71b76c1412729"
 
 SRC_URI = "git://github.com/fmtlib/fmt;branch=master;protocol=https"
 
-SRCREV = "f781d2b9321934f881de1ddb5be1db69fae1632e"
+SRCREV = "407c905e45ad75fc29bf0f9bb7c5c2fd3475976f"
 
 inherit cmake ptest
 

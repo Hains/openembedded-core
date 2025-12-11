@@ -18,7 +18,6 @@ SRC_URI += "http://www.w3.org/XML/Test/xmlts20130923.tar;subdir=${BP};name=testt
            file://run-ptest \
            file://install-tests.patch \
            file://0001-Revert-cmake-Fix-installation-directories-in-libxml2.patch \
-           file://CVE-2025-6021.patch \
            "
 
 SRC_URI[archive.sha256sum] = "c008bac08fd5c7b4a87f7b8a71f283fa581d80d80ff8d2efd3b26224c39bc54c"
@@ -28,19 +27,11 @@ CVE_STATUS[CVE-2025-6170] = "fixed-version: fixed in version 2.14.5"
 
 BINCONFIG = "${bindir}/xml2-config"
 
-PACKAGECONFIG ??= "python"
-PACKAGECONFIG[python] = "--with-python=${PYTHON},--without-python,python3"
-
 inherit autotools pkgconfig binconfig-disabled ptest
-
-inherit_defer ${@bb.utils.contains('PACKAGECONFIG', 'python', 'python3targetconfig', '', d)}
 
 LDFLAGS:append:riscv64 = "${@bb.utils.contains('DISTRO_FEATURES', 'ld-is-lld ptest', ' -fuse-ld=bfd', '', d)}"
 
-RDEPENDS:${PN}-ptest += "bash make locale-base-en-us ${@bb.utils.contains('PACKAGECONFIG', 'python', 'libgcc python3-core python3-logging python3-shell python3-threading python3-unittest ${PN}-python', '', d)}"
-
-RDEPENDS:${PN}-python += "${@bb.utils.contains('PACKAGECONFIG', 'python', 'python3-core', '', d)}"
-
+RDEPENDS:${PN}-ptest += "bash make locale-base-en-us"
 RDEPENDS:${PN}-ptest:append:libc-musl = " musl-locales"
 RDEPENDS:${PN}-ptest:append:libc-glibc = " glibc-gconv-ebcdic-us \
                                            glibc-gconv-ibm1141 \
@@ -61,11 +52,9 @@ python populate_packages:prepend () {
 }
 
 PACKAGE_BEFORE_PN += "${PN}-utils"
-PACKAGES += "${PN}-python"
 
 FILES:${PN}-staticdev += "${PYTHON_SITEPACKAGES_DIR}/*.a"
 FILES:${PN}-utils = "${bindir}/*"
-FILES:${PN}-python = "${PYTHON_SITEPACKAGES_DIR}"
 
 do_configure:prepend () {
 	# executables take longer to package: these should not be executable
@@ -76,10 +65,6 @@ do_install_ptest () {
     oe_runmake DESTDIR=${D} ptestdir=${PTEST_PATH} install-test-data
 
 	cp -r ${S}/xmlconf ${D}${PTEST_PATH}
-
-    if ! ${@bb.utils.contains('PACKAGECONFIG', 'python', 'true', 'false', d)}; then
-        rm -rf ${D}${PTEST_DIR}/python
-    fi
 }
 
 # with musl we need to enable icu support explicitly for these tests

@@ -110,7 +110,8 @@
             "io",
             "logging",
             "netclient",
-            "numbers"
+            "numbers",
+            "stringold"
         ],
         "files": [
             "${libdir}/python${PYTHON_MAJMIN}/asyncio",
@@ -166,12 +167,18 @@
         "files": [
             "${libdir}/python${PYTHON_MAJMIN}/gzip.py",
             "${libdir}/python${PYTHON_MAJMIN}/tarfile.py",
+            "${libdir}/python${PYTHON_MAJMIN}/compression/gzip.py",
+            "${libdir}/python${PYTHON_MAJMIN}/compression/tarfile.py",
+            "${libdir}/python${PYTHON_MAJMIN}/compression/_common/_streams.py",
             "${libdir}/python${PYTHON_MAJMIN}/zipfile",
             "${libdir}/python${PYTHON_MAJMIN}/zipfile/_path"
         ],
         "cached": [
             "${libdir}/python${PYTHON_MAJMIN}/__pycache__/gzip.*.pyc",
-            "${libdir}/python${PYTHON_MAJMIN}/__pycache__/tarfile.*.pyc"
+            "${libdir}/python${PYTHON_MAJMIN}/__pycache__/tarfile.*.pyc",
+            "${libdir}/python${PYTHON_MAJMIN}/compression/__pycache__/gzip.*.pyc",
+            "${libdir}/python${PYTHON_MAJMIN}/compression/__pycache__/tarfile.*.pyc",
+            "${libdir}/python${PYTHON_MAJMIN}/compression/_common/__pycache__/_streams.*.pyc"
         ]
     },
     "core": {
@@ -187,18 +194,21 @@
             "${libdir}/python${PYTHON_MAJMIN}/UserString.py",
             "${libdir}/python${PYTHON_MAJMIN}/__future__.py",
             "${libdir}/python${PYTHON_MAJMIN}/_abcoll.py",
+            "${libdir}/python${PYTHON_MAJMIN}/_ast_unparse.py",
             "${libdir}/python${PYTHON_MAJMIN}/_bootlocale.py",
             "${libdir}/python${PYTHON_MAJMIN}/_collections_abc.py",
             "${libdir}/python${PYTHON_MAJMIN}/_colorize.py",
             "${libdir}/python${PYTHON_MAJMIN}/_compression.py",
             "${libdir}/python${PYTHON_MAJMIN}/_markupbase.py",
             "${libdir}/python${PYTHON_MAJMIN}/_opcode_metadata.py",
+            "${libdir}/python${PYTHON_MAJMIN}/_py_warnings.py",
             "${libdir}/python${PYTHON_MAJMIN}/_pyrepl",
             "${libdir}/python${PYTHON_MAJMIN}/_pyrepl/pager.py",
             "${libdir}/python${PYTHON_MAJMIN}/_sitebuiltins.py",
             "${libdir}/python${PYTHON_MAJMIN}/_sysconfigdata*.py",
             "${libdir}/python${PYTHON_MAJMIN}/_weakrefset.py",
             "${libdir}/python${PYTHON_MAJMIN}/abc.py",
+            "${libdir}/python${PYTHON_MAJMIN}/annotationlib.py",
             "${libdir}/python${PYTHON_MAJMIN}/argparse.py",
             "${libdir}/python${PYTHON_MAJMIN}/ast.py",
             "${libdir}/python${PYTHON_MAJMIN}/bisect.py",
@@ -497,7 +507,8 @@
         "rdepends": [
             "core",
             "pprint",
-            "shell"
+            "shell",
+            "stringold"
         ],
         "files": [
             "${libdir}/python${PYTHON_MAJMIN}/bdb.py",
@@ -548,6 +559,7 @@
             "difflib",
             "pprint",
             "shell",
+            "stringold",
             "unittest"
         ],
         "files": [
@@ -565,7 +577,8 @@
             "io",
             "math",
             "mime",
-            "netclient"
+            "netclient",
+            "stringold"
         ],
         "files": [
             "${libdir}/python${PYTHON_MAJMIN}/email",
@@ -679,6 +692,7 @@
             "io",
             "netserver",
             "pickle",
+            "stringold",
             "threading"
         ],
         "files": [
@@ -695,7 +709,8 @@
             "io",
             "math",
             "mime",
-            "netclient"
+            "netclient",
+            "stringold"
         ],
         "files": [
             "${libdir}/python${PYTHON_MAJMIN}/mailbox.py"
@@ -785,6 +800,7 @@
             "shell",
             "sqlite3",
             "statistics",
+            "stringold",
             "syslog",
             "terminal",
             "threading",
@@ -828,7 +844,8 @@
             "email",
             "io",
             "math",
-            "mime"
+            "mime",
+            "stringold"
         ],
         "files": [
             "${libdir}/python${PYTHON_MAJMIN}/base64.py",
@@ -987,7 +1004,8 @@
     "shell": {
         "summary": "Python shell-like functionality",
         "rdepends": [
-            "core"
+            "core",
+            "stringold"
         ],
         "files": [
             "${libdir}/python${PYTHON_MAJMIN}/cmd.py",
@@ -1023,6 +1041,19 @@
         ],
         "cached": [
             "${libdir}/python${PYTHON_MAJMIN}/__pycache__/statistics.*.pyc"
+        ]
+    },
+    "stringold": {
+        "summary": "Common string operations",
+        "rdepends": [
+            "core"
+        ],
+        "files": [
+            "${libdir}/python${PYTHON_MAJMIN}/string/__init__.py",
+            "${libdir}/python${PYTHON_MAJMIN}/string/templatelib.py"
+        ],
+        "cached": [
+            "${libdir}/python${PYTHON_MAJMIN}/__pycache__/string.*.pyc"
         ]
     },
     "syslog": {
@@ -1095,7 +1126,8 @@
             "logging",
             "netclient",
             "numbers",
-            "pprint"
+            "pprint",
+            "stringold"
         ],
         "files": [
             "${libdir}/python${PYTHON_MAJMIN}/unittest",
@@ -1121,7 +1153,8 @@
         "summary": "Provides support for creating lightweight virtual environments with their own site directories, optionally isolated from system site directories.",
         "rdepends": [
             "core",
-            "logging"
+            "logging",
+            "stringold"
         ],
         "files": [
             "${bindir}/pyvenv*",
@@ -1155,6 +1188,7 @@
             "netserver",
             "numbers",
             "pydoc",
+            "stringold",
             "xml"
         ],
         "files": [
@@ -1185,17 +1219,6 @@
         "files": [
             "${libdir}/python${PYTHON_MAJMIN}/lib-dynload/_zoneinfo.*.so",
             "${libdir}/python${PYTHON_MAJMIN}/zoneinfo"
-        ],
-        "cached": []
-    },
-    "zstd": {
-        "summary": "ZSTD compression",
-        "rdepends": [
-            "core",
-            "compression"
-        ],
-        "files": [
-            "${libdir}/python${PYTHON_MAJMIN}/lib-dynload/_zstd.*.so"
         ],
         "cached": []
     }

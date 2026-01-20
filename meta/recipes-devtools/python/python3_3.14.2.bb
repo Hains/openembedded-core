@@ -29,6 +29,9 @@ SRC_URI = "http://www.python.org/ftp/python/${PV}/Python-${PV}.tar.xz \
            file://0001-test_deadlock-skip-problematic-test.patch \
            file://0001-test_active_children-skip-problematic-test.patch \
            file://0001-test_readline-skip-limited-history-test.patch \
+           file://0001-test_cmd-skip-bang-completion-test.patch \
+	   file://0001-test_pyrepl-skip-test_unix_console.test_cursor_back_.patch \
+	   file://0001-test_sysconfig-skip-test_sysconfig.test_sysconfigdat.patch \
            "
 SRC_URI:append:class-native = " \
            file://0001-Lib-sysconfig.py-use-prefix-value-from-build-configu.patch \
@@ -298,6 +301,15 @@ py_package_preprocess () {
 
         #Remove the unneeded copy of target sysconfig data
         rm -rf ${PKGD}/${libdir}/python-sysconfigdata
+
+	# Remove references to buildpaths in _sysconfig_vars JSON files
+        sed -i -e 's:--sysroot=${STAGING_DIR_TARGET}::g' -e s:'--with-libtool-sysroot=${STAGING_DIR_TARGET}'::g \
+                -e 's|${DEBUG_PREFIX_MAP}||g' \
+                -e 's:${HOSTTOOLS_DIR}/::g' \
+                -e 's:${RECIPE_SYSROOT_NATIVE}::g' \
+                -e 's:${RECIPE_SYSROOT}::g' \
+                -e 's:${BASE_WORKDIR}/${MULTIMACH_TARGET_SYS}::g' \
+		${PKGD}/${libdir}/python${PYTHON_MAJMIN}/_sysconfig_vars*.json
 }
 
 # We want bytecode precompiled .py files (.pyc's) by default

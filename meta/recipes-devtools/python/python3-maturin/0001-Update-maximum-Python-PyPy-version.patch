@@ -1,0 +1,99 @@
+From 713a7088e1ca9f1fe71efd670826d6b77470c24d Mon Sep 17 00:00:00 2001
+From: messense <messense@icloud.com>
+Date: Thu, 29 Oct 2026 21:46:23 +0800
+Subject: [PATCH] Update maximum Python & PyPy version
+
+Upstream-Status: Backport [https://github.com/PyO3/maturin/commit/3bec0a32ae2b67ad4fac0194f762f44141e51473]
+Signed-off-by: Jaipaul Cheernam <jaipaul.cheernam@est.tech>
+---
+ src/python_interpreter/discovery.rs | 12 ++++++++++++
+ src/python_interpreter/mod.rs       |  4 ++--
+ 2 files changed, 14 insertions(+), 2 deletions(-)
+
+diff --git a/src/python_interpreter/discovery.rs b/src/python_interpreter/discovery.rs
+index e4bcb73..47548aa 100644
+--- a/src/python_interpreter/discovery.rs
++++ b/src/python_interpreter/discovery.rs
+@@ -708,10 +708,12 @@ mod tests {
+                 "CPython 3.12",
+                 "CPython 3.13",
+                 "CPython 3.14",
++                "CPython 3.15",
+                 "PyPy 3.8",
+                 "PyPy 3.9",
+                 "PyPy 3.10",
+                 "PyPy 3.11",
++                "PyPy 3.12",
+             ]
+         "#]];
+         expected.assert_debug_eq(&pythons);
+@@ -740,10 +742,13 @@ mod tests {
+                 "CPython 3.12",
+                 "CPython 3.13",
+                 "CPython 3.14",
++                "CPython 3.15",
+                 "CPython 3.14t",
++                "CPython 3.15t",
+                 "PyPy 3.9",
+                 "PyPy 3.10",
+                 "PyPy 3.11",
++                "PyPy 3.12",
+             ]
+         "#]];
+         expected.assert_debug_eq(&pythons);
+@@ -765,10 +770,12 @@ mod tests {
+                 "CPython 3.12",
+                 "CPython 3.13",
+                 "CPython 3.14",
++                "CPython 3.15",
+                 "PyPy 3.8",
+                 "PyPy 3.9",
+                 "PyPy 3.10",
+                 "PyPy 3.11",
++                "PyPy 3.12",
+             ]
+         "#]];
+         expected.assert_debug_eq(&pythons);
+@@ -788,8 +795,10 @@ mod tests {
+                 "CPython 3.12",
+                 "CPython 3.13",
+                 "CPython 3.14",
++                "CPython 3.15",
+                 "PyPy 3.10",
+                 "PyPy 3.11",
++                "PyPy 3.12",
+             ]
+         "#]];
+         expected.assert_debug_eq(&pythons);
+@@ -817,10 +826,13 @@ mod tests {
+                 "CPython 3.12",
+                 "CPython 3.13",
+                 "CPython 3.14",
++                "CPython 3.15",
+                 "CPython 3.14t",
++                "CPython 3.15t",
+                 "PyPy 3.9",
+                 "PyPy 3.10",
+                 "PyPy 3.11",
++                "PyPy 3.12",
+             ]
+         "#]];
+         expected.assert_debug_eq(&pythons);
+diff --git a/src/python_interpreter/mod.rs b/src/python_interpreter/mod.rs
+index dca016f..9dcdaf8 100644
+--- a/src/python_interpreter/mod.rs
++++ b/src/python_interpreter/mod.rs
+@@ -23,11 +23,11 @@ pub const MINIMUM_PYTHON_MINOR: usize = 7;
+ /// Minimum supported PyPy minor version.
+ pub const MINIMUM_PYPY_MINOR: usize = 8;
+ /// Be liberal here to include preview versions
+-pub const MAXIMUM_PYTHON_MINOR: usize = 14;
++pub const MAXIMUM_PYTHON_MINOR: usize = 15;
+ /// Minimum supported version for free-threaded CPython
+ pub const FREE_THREADED_MINIMUM_PYTHON_MINOR: usize = 14;
+ /// Maximum supported PyPy minor version.
+-pub const MAXIMUM_PYPY_MINOR: usize = 11;
++pub const MAXIMUM_PYPY_MINOR: usize = 12;
+ 
+ /// The kind of Python interpreter (CPython, PyPy, or GraalPy).
+ #[derive(Debug, Clone, Copy, Eq, PartialEq, Hash, serde::Deserialize, clap::ValueEnum)]

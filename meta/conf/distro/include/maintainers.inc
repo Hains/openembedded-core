@@ -422,7 +422,7 @@ RECIPE_MAINTAINER:pn-libucontext = "Khem Raj <raj.khem@gmail.com>"
 RECIPE_MAINTAINER:pn-libunistring = "Unassigned <unassigned@yoctoproject.org>"
 RECIPE_MAINTAINER:pn-libunwind = "Bruce Ashfield <bruce.ashfield@gmail.com>"
 RECIPE_MAINTAINER:pn-liburcu = "Wang Mingyu <wangmy@fujitsu.com>"
-RECIPE_MAINTAINER:pn-libusb1 = "Unassigned <unassigned@yoctoproject.org>"
+RECIPE_MAINTAINER:pn-libusb1 = "Babanpreet Singh <bbnpreetsingh@gmail.com>"
 RECIPE_MAINTAINER:pn-libuv = "Unassigned <unassigned@yoctoproject.org>"
 RECIPE_MAINTAINER:pn-libva = "Unassigned <unassigned@yoctoproject.org>"
 RECIPE_MAINTAINER:pn-libva-initial = "Unassigned <unassigned@yoctoproject.org>"
@@ -731,7 +731,9 @@ RECIPE_MAINTAINER:pn-python3-spdx-tools = "Marta Rybczynska <marta.rybczynska@yg
 RECIPE_MAINTAINER:pn-python3-sphinx = "Trevor Gamblin <tgamblin@baylibre.com>"
 RECIPE_MAINTAINER:pn-python3-sphinx-argparse = "Antonin Godard <antonin.godard@bootlin.com>"
 RECIPE_MAINTAINER:pn-python3-sphinx-copybutton = "Antonin Godard <antonin.godard@bootlin.com>"
+RECIPE_MAINTAINER:pn-python3-sphinx-design = "Antonin Godard <antonin.godard@bootlin.com>"
 RECIPE_MAINTAINER:pn-python3-sphinx-rtd-theme = "Tim Orling <tim.orling@konsulko.com>"
+RECIPE_MAINTAINER:pn-python3-sphinx-tags = "Antonin Godard <antonin.godard@bootlin.com>"
 RECIPE_MAINTAINER:pn-python3-sphinxcontrib-applehelp = "Tim Orling <tim.orling@konsulko.com>"
 RECIPE_MAINTAINER:pn-python3-sphinxcontrib-devhelp = "Tim Orling <tim.orling@konsulko.com>"
 RECIPE_MAINTAINER:pn-python3-sphinxcontrib-htmlhelp = "Tim Orling <tim.orling@konsulko.com>"
@@ -818,7 +820,7 @@ RECIPE_MAINTAINER:pn-squashfs-tools = "Robert Yang <liezhi.yang@windriver.com>"
 RECIPE_MAINTAINER:pn-ssh-pregen-hostkeys = "Richard Purdie <richard.purdie@linuxfoundation.org>"
 RECIPE_MAINTAINER:pn-startup-notification = "Unassigned <unassigned@yoctoproject.org>"
 RECIPE_MAINTAINER:pn-strace = "Kris Gavvala <kris.gavvala@windriver.com>"
-RECIPE_MAINTAINER:pn-stress-ng = "Unassigned <unassigned@yoctoproject.org>"
+RECIPE_MAINTAINER:pn-stress-ng = "Babanpreet Singh <bbnpreetsingh@gmail.com>"
 RECIPE_MAINTAINER:pn-subversion = "Richard Purdie <richard.purdie@linuxfoundation.org>"
 RECIPE_MAINTAINER:pn-sudo = "Chen Qi <Qi.Chen@windriver.com>"
 RECIPE_MAINTAINER:pn-swig = "Unassigned <unassigned@yoctoproject.org>"
@@ -951,3 +953,32 @@ RECIPE_MAINTAINER:pn-xz = "Denys Dmytriyenko <denis@denix.org>"
 RECIPE_MAINTAINER:pn-zip = "Denys Dmytriyenko <denis@denix.org>"
 RECIPE_MAINTAINER:pn-zlib = "Denys Dmytriyenko <denis@denix.org>"
 RECIPE_MAINTAINER:pn-zstd = "Unassigned <unassigned@yoctoproject.org>"
+
+# Recipes (BPN) whose changelog from 'devtool upgrade' is not suitable
+# for a commit message; devtool flags them in its changelog JSON metadata.
+RECIPE_UPGRADE_CHANGELOG_SKIP += "\
+    acpica \
+    cmake \
+    expat \
+    freetype \
+    gst-devtools \
+    gst-examples \
+    gstreamer1.0 \
+    gstreamer1.0-libav \
+    gstreamer1.0-plugins-bad \
+    gstreamer1.0-plugins-base \
+    gstreamer1.0-plugins-good \
+    gstreamer1.0-plugins-ugly \
+    gstreamer1.0-python \
+    gstreamer1.0-rtsp-server \
+    mesa \
+    mesa-gl \
+    mesa-libclc \
+    mesa-tools \
+    openssh \
+    parted \
+    python3 \
+    u-boot \
+    u-boot-tools \
+    vulkan-validation-layers \
+"
